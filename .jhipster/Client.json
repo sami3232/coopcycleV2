@@ -1,0 +1,38 @@
+{
+  "name": "Client",
+  "fields": [
+    {
+      "fieldName": "adresse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "pattern"
+      ],
+      "fieldValidateRulesPattern": "^[A-Z][a-z]+\\d$"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "utilisateur",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "utilisateur",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20210411184040",
+  "entityTableName": "client",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

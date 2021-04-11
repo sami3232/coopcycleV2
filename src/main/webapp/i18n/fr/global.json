@@ -7,6 +7,16 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
+        "client": "Client",
+        "coursier": "Coursier",
+        "commercant": "Commercant",
+        "utilisateur": "Utilisateur",
+        "panier": "Panier",
+        "course": "Course",
+        "produit": "Produit",
+        "commerce": "Commerce",
+        "restaurant": "Restaurant",
+        "autreCommerce": "Autre Commerce",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

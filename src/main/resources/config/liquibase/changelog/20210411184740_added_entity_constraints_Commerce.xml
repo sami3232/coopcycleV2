@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Commerce.
+    -->
+    <changeSet id="20210411184740-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="utilisateur_id"
+                                 baseTableName="commerce"
+                                 constraintName="fk_commerce_utilisateur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="utilisateur"/>
+
+        <addForeignKeyConstraint baseColumnNames="restaurant_id"
+                                 baseTableName="commerce"
+                                 constraintName="fk_commerce_restaurant_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="restaurant"/>
+
+        <addForeignKeyConstraint baseColumnNames="autre_commerce_id"
+                                 baseTableName="commerce"
+                                 constraintName="fk_commerce_autre_commerce_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="autre_commerce"/>
+
+        <addForeignKeyConstraint baseColumnNames="panier_id"
+                                 baseTableName="commerce"
+                                 constraintName="fk_commerce_panier_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="panier"/>
+
+    </changeSet>
+</databaseChangeLog>

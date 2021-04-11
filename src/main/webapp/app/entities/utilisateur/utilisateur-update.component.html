@@ -1,0 +1,106 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-utilisateur-heading" jhiTranslate="coopcycleApp.utilisateur.home.createOrEditLabel">Create or edit a Utilisateur</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coopcycleApp.utilisateur.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.pattern" jhiTranslate="entity.validation.pattern" [translateValues]="{ pattern: 'Name' }">
+                            This field should follow pattern for "Name".
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coopcycleApp.utilisateur.firstname" for="field_firstname">Firstname</label>
+                    <input type="text" class="form-control" name="firstname" id="field_firstname"
+                           formControlName="firstname"/>
+                    <div *ngIf="editForm.get('firstname')!.invalid && (editForm.get('firstname')!.dirty || editForm.get('firstname')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('firstname')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('firstname')?.errors?.pattern" jhiTranslate="entity.validation.pattern" [translateValues]="{ pattern: 'Firstname' }">
+                            This field should follow pattern for "Firstname".
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coopcycleApp.utilisateur.mail" for="field_mail">Mail</label>
+                    <input type="text" class="form-control" name="mail" id="field_mail"
+                           formControlName="mail"/>
+                    <div *ngIf="editForm.get('mail')!.invalid && (editForm.get('mail')!.dirty || editForm.get('mail')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mail')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coopcycleApp.utilisateur.tel" for="field_tel">Tel</label>
+                    <input type="text" class="form-control" name="tel" id="field_tel"
+                           formControlName="tel"/>
+                    <div *ngIf="editForm.get('tel')!.invalid && (editForm.get('tel')!.dirty || editForm.get('tel')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tel')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coopcycleApp.utilisateur.client" for="field_client">Client</label>
+                    <select class="form-control" id="field_client" name="client" formControlName="client">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clientOption.id === editForm.get('client')!.value?.id ? editForm.get('client')!.value : clientOption" *ngFor="let clientOption of clients; trackBy: trackById">{{ clientOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coopcycleApp.utilisateur.commercant" for="field_commercant">Commercant</label>
+                    <select class="form-control" id="field_commercant" name="commercant" formControlName="commercant">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="commercantOption.id === editForm.get('commercant')!.value?.id ? editForm.get('commercant')!.value : commercantOption" *ngFor="let commercantOption of commercants; trackBy: trackById">{{ commercantOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coopcycleApp.utilisateur.coursier" for="field_coursier">Coursier</label>
+                    <select class="form-control" id="field_coursier" name="coursier" formControlName="coursier">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="coursierOption.id === editForm.get('coursier')!.value?.id ? editForm.get('coursier')!.value : coursierOption" *ngFor="let coursierOption of coursiers; trackBy: trackById">{{ coursierOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

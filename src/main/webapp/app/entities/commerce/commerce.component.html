@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="coopcycleApp.commerce.home.title">Commerce</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-commerce" [routerLink]="['/commerce/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="coopcycleApp.commerce.home.createLabel">
+            Create a new Commerce
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="commerce?.length === 0">
+        <span jhiTranslate="coopcycleApp.commerce.home.notFound">No commerce found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="commerce && commerce.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="coopcycleApp.commerce.adresse">Adresse</span></th>
+                    <th scope="col" ><span jhiTranslate="coopcycleApp.commerce.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="coopcycleApp.commerce.noteCommerce">Note Commerce</span></th>
+                    <th scope="col" ><span jhiTranslate="coopcycleApp.commerce.utilisateur">Utilisateur</span></th>
+                    <th scope="col" ><span jhiTranslate="coopcycleApp.commerce.restaurant">Restaurant</span></th>
+                    <th scope="col" ><span jhiTranslate="coopcycleApp.commerce.autreCommerce">Autre Commerce</span></th>
+                    <th scope="col" ><span jhiTranslate="coopcycleApp.commerce.panier">Panier</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let commerce of commerce ;trackBy: trackId">
+                    <td><a [routerLink]="['/commerce', commerce.id, 'view']">{{ commerce.id }}</a></td>
+                    <td>{{ commerce.adresse }}</td>
+                    <td>{{ commerce.name }}</td>
+                    <td>{{ commerce.noteCommerce }}</td>
+                    <td>
+                        <div *ngIf="commerce.utilisateur">
+                            <a [routerLink]="['/utilisateur', commerce.utilisateur?.id, 'view']" >{{ commerce.utilisateur?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="commerce.restaurant">
+                            <a [routerLink]="['/restaurant', commerce.restaurant?.id, 'view']" >{{ commerce.restaurant?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="commerce.autreCommerce">
+                            <a [routerLink]="['/autre-commerce', commerce.autreCommerce?.id, 'view']" >{{ commerce.autreCommerce?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="commerce.panier">
+                            <a [routerLink]="['/panier', commerce.panier?.id, 'view']" >{{ commerce.panier?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/commerce', commerce.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/commerce', commerce.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(commerce)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

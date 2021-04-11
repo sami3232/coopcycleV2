@@ -1,0 +1,45 @@
+{
+  "name": "Course",
+  "fields": [
+    {
+      "fieldName": "prix",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required",
+        "min"
+      ],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "distance",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "panier",
+      "otherEntityRelationshipName": "course",
+      "relationshipName": "panier",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210411184540",
+  "entityTableName": "course",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commerce">
+            <h2><span jhiTranslate="coopcycleApp.commerce.detail.title">Commerce</span> {{ commerce.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="coopcycleApp.commerce.adresse">Adresse</span></dt>
+                <dd>
+                    <span>{{ commerce.adresse }}</span>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.commerce.name">Name</span></dt>
+                <dd>
+                    <span>{{ commerce.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.commerce.noteCommerce">Note Commerce</span></dt>
+                <dd>
+                    <span>{{ commerce.noteCommerce }}</span>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.commerce.utilisateur">Utilisateur</span></dt>
+                <dd>
+                    <div *ngIf="commerce.utilisateur">
+                        <a [routerLink]="['/utilisateur', commerce.utilisateur?.id, 'view']">{{ commerce.utilisateur?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.commerce.restaurant">Restaurant</span></dt>
+                <dd>
+                    <div *ngIf="commerce.restaurant">
+                        <a [routerLink]="['/restaurant', commerce.restaurant?.id, 'view']">{{ commerce.restaurant?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.commerce.autreCommerce">Autre Commerce</span></dt>
+                <dd>
+                    <div *ngIf="commerce.autreCommerce">
+                        <a [routerLink]="['/autre-commerce', commerce.autreCommerce?.id, 'view']">{{ commerce.autreCommerce?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.commerce.panier">Panier</span></dt>
+                <dd>
+                    <div *ngIf="commerce.panier">
+                        <a [routerLink]="['/panier', commerce.panier?.id, 'view']">{{ commerce.panier?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/commerce', commerce.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

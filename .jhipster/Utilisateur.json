@@ -1,0 +1,87 @@
+{
+  "name": "Utilisateur",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "pattern"
+      ],
+      "fieldValidateRulesPattern": "^[A-Z][a-z]+\\d$"
+    },
+    {
+      "fieldName": "firstname",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "pattern"
+      ],
+      "fieldValidateRulesPattern": "^[A-Z][a-z]+\\d$"
+    },
+    {
+      "fieldName": "mail",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "tel",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "utilisateur",
+      "relationshipName": "client",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "commercant",
+      "otherEntityRelationshipName": "utilisateur",
+      "relationshipName": "commercant",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "coursier",
+      "otherEntityRelationshipName": "utilisateur",
+      "relationshipName": "coursier",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "panier",
+      "otherEntityRelationshipName": "utilisateur",
+      "relationshipName": "panier"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "commerce",
+      "otherEntityRelationshipName": "utilisateur",
+      "relationshipName": "commerce",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20210411184340",
+  "entityTableName": "utilisateur",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

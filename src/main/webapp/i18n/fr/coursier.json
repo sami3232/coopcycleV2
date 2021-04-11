@@ -1,0 +1,24 @@
+{
+  "coopcycleApp": {
+    "coursier": {
+      "home": {
+        "title": "Coursiers",
+        "createLabel": "Créer un nouveau Coursier",
+        "createOrEditLabel": "Créer ou éditer un Coursier",
+        "notFound": "Aucun Coursier trouvé"
+      },
+      "created": "Un nouveau Coursier a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Coursier avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Coursier avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Coursier {{ id }} ?"
+      },
+      "detail": {
+        "title": "Coursier"
+      },
+      "coordonne": "Coordonne",
+      "noteCoursier": "Note Coursier",
+      "utilisateur": "Utilisateur"
+    }
+  }
+}

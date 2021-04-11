@@ -1,0 +1,42 @@
+{
+  "name": "Coursier",
+  "fields": [
+    {
+      "fieldName": "coordonne",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "noteCoursier",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "5"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "utilisateur",
+      "otherEntityRelationshipName": "coursier",
+      "relationshipName": "utilisateur",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20210411184140",
+  "entityTableName": "coursier",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

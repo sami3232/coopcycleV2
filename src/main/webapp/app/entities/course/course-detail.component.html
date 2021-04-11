@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="course">
+            <h2><span jhiTranslate="coopcycleApp.course.detail.title">Course</span> {{ course.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="coopcycleApp.course.prix">Prix</span></dt>
+                <dd>
+                    <span>{{ course.prix }}</span>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.course.distance">Distance</span></dt>
+                <dd>
+                    <span>{{ course.distance }}</span>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.course.date">Date</span></dt>
+                <dd>
+                    <span>{{ course.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="coopcycleApp.course.panier">Panier</span></dt>
+                <dd>
+                    <div *ngIf="course.panier">
+                        <a [routerLink]="['/panier', course.panier?.id, 'view']">{{ course.panier?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/course', course.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

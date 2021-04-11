@@ -1,0 +1,32 @@
+{
+  "name": "Commercant",
+  "fields": [
+    {
+      "fieldName": "adresse",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "utilisateur",
+      "otherEntityRelationshipName": "commercant",
+      "relationshipName": "utilisateur",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20210411184240",
+  "entityTableName": "commercant",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

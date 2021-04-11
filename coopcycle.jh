@@ -5,7 +5,7 @@ entity Client {
 
 entity Coursier {
     coordonne String required
-    noteCoursier Integer required min(0) max(5)
+    noteCoursier Integer min(0) max(5)
 }
 
 entity Commercant {
@@ -15,7 +15,7 @@ entity Commercant {
 entity Utilisateur {
     id Integer required
     name String required pattern(/^[A-Z][a-z]+\d$/)
-    Firstname String required pattern(/^[A-Z][a-z]+\d$/)
+    firstname String required pattern(/^[A-Z][a-z]+\d$/)
     mail String required
     tel String required
 }
@@ -27,7 +27,7 @@ entity Panier {
 
 entity Course {
     prix Integer required min(0)
-    distance Float required
+    distance Float
     date LocalDate required
 }
 
@@ -39,11 +39,11 @@ entity Produit {
 
 entity Commerce {
     adresse String required
-    noteCommerce Integer required min(0) max(5)
+    name String required
+    noteCommerce Integer min(0) max(5)
 }
 
 entity Restaurant {
-    name String required
     resto TypeRestaurant
 }
 
@@ -52,16 +52,23 @@ enum TypeRestaurant {
 }
 
 entity AutreCommerce{
-    name String required
+    typeCommerce String required
 }
 
 relationship OneToMany {
     Utilisateur to Panier
-    Commerce to Utilisateur
     Panier to Commerce
     Panier to Course
 }
 
+relationship OneToOne {
+    Utilisateur to Client
+    Utilisateur to Commercant
+    Utilisateur to Coursier
+    Commerce to Utilisateur
+    Commerce to Restaurant
+    Commerce to AutreCommerce
+}
 
 relationship ManyToMany {
     Produit to Commerce

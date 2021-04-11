@@ -1,0 +1,12 @@
+{
+  "coopcycleApp": {
+    "TypeRestaurant": {
+      "null": "",
+      "TACOS": "TACOS",
+      "PIZZERIA": "PIZZERIA",
+      "CREPERIE": "CREPERIE",
+      "BURGER": "BURGER",
+      "BOULANGERIE": "BOULANGERIE"
+    }
+  }
+}

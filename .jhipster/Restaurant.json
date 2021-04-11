@@ -1,0 +1,30 @@
+{
+  "name": "Restaurant",
+  "fields": [
+    {
+      "fieldName": "resto",
+      "fieldType": "TypeRestaurant",
+      "fieldValues": "TACOS,PIZZERIA,CREPERIE,BURGER,BOULANGERIE"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "commerce",
+      "otherEntityRelationshipName": "restaurant",
+      "relationshipName": "commerce",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20210411184840",
+  "entityTableName": "restaurant",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

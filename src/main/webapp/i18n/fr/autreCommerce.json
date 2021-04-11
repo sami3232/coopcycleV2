@@ -1,0 +1,23 @@
+{
+  "coopcycleApp": {
+    "autreCommerce": {
+      "home": {
+        "title": "AutreCommerces",
+        "createLabel": "Créer un nouveau Autre Commerce",
+        "createOrEditLabel": "Créer ou éditer un Autre Commerce",
+        "notFound": "Aucun Autre Commerce trouvé"
+      },
+      "created": "Un nouveau Autre Commerce a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Autre Commerce avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Autre Commerce avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Autre Commerce {{ id }} ?"
+      },
+      "detail": {
+        "title": "Autre Commerce"
+      },
+      "typeCommerce": "Type Commerce",
+      "commerce": "Commerce"
+    }
+  }
+}

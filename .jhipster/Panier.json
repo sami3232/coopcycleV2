@@ -1,0 +1,63 @@
+{
+  "name": "Panier",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "pattern"
+      ],
+      "fieldValidateRulesPattern": "^[A-Z][a-z]+\\d$"
+    },
+    {
+      "fieldName": "prix",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required",
+        "min"
+      ],
+      "fieldValidateRulesMin": "0"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "commerce",
+      "otherEntityRelationshipName": "panier",
+      "relationshipName": "commerce"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "course",
+      "otherEntityRelationshipName": "panier",
+      "relationshipName": "course"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "produit",
+      "otherEntityRelationshipName": "panier",
+      "relationshipName": "produit",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "utilisateur",
+      "otherEntityRelationshipName": "panier",
+      "relationshipName": "utilisateur",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210411184440",
+  "entityTableName": "panier",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
