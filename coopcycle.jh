@@ -1,0 +1,69 @@
+entity Client {
+    adresse String
+    name String required pattern(/^[A-Z][a-z]+\d$/)
+}
+
+entity Coursier {
+    coordonne String required
+    noteCoursier Integer required min(0) max(5)
+}
+
+entity Commercant {
+    adresse String required
+}
+
+entity Utilisateur {
+    id Integer required
+    name String required pattern(/^[A-Z][a-z]+\d$/)
+    Firstname String required pattern(/^[A-Z][a-z]+\d$/)
+    mail String required
+    tel String required
+}
+
+entity Panier {
+    name String required pattern(/^[A-Z][a-z]+\d$/)
+    prix Integer required min(0)
+}
+
+entity Course {
+    prix Integer required min(0)
+    distance Float required
+    date LocalDate required
+}
+
+entity Produit {
+    name String required pattern(/^[A-Z][a-z]+\d$/)
+    prix Integer required min(0)
+    description String required
+}
+
+entity Commerce {
+    adresse String required
+    noteCommerce Integer required min(0) max(5)
+}
+
+entity Restaurant {
+    name String required
+    resto TypeRestaurant
+}
+
+enum TypeRestaurant {
+    TACOS, PIZZERIA, CREPERIE, BURGER, BOULANGERIE
+}
+
+entity AutreCommerce{
+    name String required
+}
+
+relationship OneToMany {
+    Utilisateur to Panier
+    Commerce to Utilisateur
+    Panier to Commerce
+    Panier to Course
+}
+
+
+relationship ManyToMany {
+    Produit to Commerce
+    Panier to Produit
+}
